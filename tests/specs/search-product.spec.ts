@@ -1,25 +1,29 @@
 import { test } from '@playwright/test';
-import { HomePage } from '../pages/home-page'; 
+import { HomePage } from '../pages/home-page';
 
 test('Search for a product and check stock', async ({ page }) => {
   const homePage = new HomePage(page);
 
-  // Navigate to the Aliexpress homepage and close any popup
-  await homePage.navigateToHome();
-  await homePage.closePopup();
+  await test.step('Navigate to the Aliexpress homepage and close any popup', async () => {
+    await homePage.navigateToHome();
+    await homePage.closePopup();
+  });
 
-  // Search for 'instax mini'
-  await homePage.searchProduct('instax mini');
+  await test.step('Search for "instax mini"', async () => {
+    await homePage.searchProduct('instax mini');
+  });
 
-  // Check if search results for 'instax mini' have loaded
-  await homePage.checkSearchResultsLoaded();
+  await test.step('Check if search results for "instax mini" have loaded', async () => {
+    await homePage.checkSearchResultsLoaded();
+  });
 
-  // Navigate to the second results page
-  await homePage.navigateToSecondPage();
+  await test.step('Navigate to the second results page', async () => {
+    await homePage.navigateToSecondPage();
+  });
 
-  // Check the stock availability of the second item in the list
-  await homePage.checkSecondItemStock();
+  await test.step('Check the stock availability of the second item in the list', async () => {
+    await homePage.checkSecondItemStock();
+  });
 
-  // Close the page after the test
   await page.close();
 });
