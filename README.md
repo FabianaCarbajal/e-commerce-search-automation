@@ -10,7 +10,7 @@ npm (usually comes with Node.js)
 
 Clone this repository:
 ```bash
-git clone https://github.com/your-username/your-project-name.git
+git clone https://github.com/FabianaCarbajal/e-commerce-search-automation.git
 ```
 Navigate to the project directory:
 ```bash
